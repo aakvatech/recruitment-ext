@@ -1,0 +1,101 @@
+{
+ "actions": [],
+ "autoname": "field:candidate_name",
+ "creation": "2021-08-20 13:01:27.360425",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "candidate_name",
+  "interviewer",
+  "col_break",
+  "job_role",
+  "date_of_interview",
+  "time_of_interview",
+  "sec_break",
+  "interview_question",
+  "question"
+ ],
+ "fields": [
+  {
+   "fieldname": "candidate_name",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Candidate Name:",
+   "options": "Applicant",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "interviewer",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Name of Interviewer",
+   "options": "Employee",
+   "reqd": 1
+  },
+  {
+   "fieldname": "col_break",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "job_role",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Interviewed for Job Role:",
+   "options": "Designation",
+   "reqd": 1
+  },
+  {
+   "fieldname": "date_of_interview",
+   "fieldtype": "Date",
+   "label": "Date "
+  },
+  {
+   "fieldname": "time_of_interview",
+   "fieldtype": "Time",
+   "label": "Time"
+  },
+  {
+   "fieldname": "sec_break",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "interview_question",
+   "fieldtype": "Link",
+   "label": "Interview Question",
+   "options": "Interview Question"
+  },
+  {
+   "fetch_from": "interview_question.question_part_one",
+   "fetch_if_empty": 1,
+   "fieldname": "question",
+   "fieldtype": "Text Editor",
+   "translatable": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2021-08-20 21:51:18.881811",
+ "modified_by": "Administrator",
+ "module": "Recruitment Ext",
+ "name": "Interview Record",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}
