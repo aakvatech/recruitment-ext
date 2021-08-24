@@ -25,7 +25,7 @@
   },
   {
    "fieldname": "phone_no",
-   "fieldtype": "Data",
+   "fieldtype": "Int",
    "label": "Phone Number",
    "read_only": 1
   },
@@ -37,7 +37,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-08-20 21:56:27.645979",
+ "modified": "2021-08-23 16:55:56.109067",
  "modified_by": "Administrator",
  "module": "Recruitment Ext",
  "name": "Applicant",
