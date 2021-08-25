@@ -14,20 +14,17 @@
   {
    "fieldname": "applicant_name",
    "fieldtype": "Data",
-   "label": "Applicant Name",
-   "read_only": 1
+   "label": "Applicant Name"
   },
   {
    "fieldname": "email",
    "fieldtype": "Data",
-   "label": "Email",
-   "read_only": 1
+   "label": "Email"
   },
   {
    "fieldname": "phone_no",
    "fieldtype": "Int",
-   "label": "Phone Number",
-   "read_only": 1
+   "label": "Phone Number"
   },
   {
    "fieldname": "designation_applied",
@@ -37,7 +34,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-08-23 16:55:56.109067",
+ "modified": "2021-08-24 12:18:46.854762",
  "modified_by": "Administrator",
  "module": "Recruitment Ext",
  "name": "Applicant",
