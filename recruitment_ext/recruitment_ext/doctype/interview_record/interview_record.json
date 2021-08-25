@@ -9,7 +9,6 @@
   "candidate_name",
   "candidate_email",
   "phone_no",
-  "interviewer",
   "col_break",
   "job_role",
   "date_of_interview",
@@ -23,10 +22,12 @@
   "sec_break_3",
   "recommend",
   "comment",
-  "signature",
+  "interviewer",
   "col_break_3",
   "next_step",
-  "additional_remarks"
+  "additional_remarks",
+  "signature",
+  "amended_from"
  ],
  "fields": [
   {
@@ -38,9 +39,8 @@
   },
   {
    "fieldname": "interviewer",
-   "fieldtype": "Link",
-   "label": "Name of Interview",
-   "options": "Employee"
+   "fieldtype": "Data",
+   "label": "Name of Interviewer"
   },
   {
    "fieldname": "col_break",
@@ -140,11 +140,21 @@
    "fieldtype": "Select",
    "label": "Next Steps",
    "options": "\nCall for 2nd Interview (above 70%)\nConsider reviewing the application (50% - 70%)\nDisqualified (Below 50%)"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Interview Record",
+   "print_hide": 1,
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
+ "is_submittable": 1,
  "links": [],
- "modified": "2021-08-24 10:39:37.158717",
+ "modified": "2021-08-24 15:10:22.143531",
  "modified_by": "Administrator",
  "module": "Recruitment Ext",
  "name": "Interview Record",
