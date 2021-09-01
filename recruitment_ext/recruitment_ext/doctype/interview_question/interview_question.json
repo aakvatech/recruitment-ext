@@ -1,0 +1,63 @@
+{
+ "actions": [],
+ "autoname": "field:question_type",
+ "creation": "2021-08-23 11:50:15.312599",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "question_type",
+  "description",
+  "benchmark_score",
+  "interview_score"
+ ],
+ "fields": [
+  {
+   "fieldname": "question_type",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Question Type",
+   "options": "Question Part One",
+   "reqd": 1,
+   "unique": 1,
+   "width": "20px"
+  },
+  {
+   "fetch_from": "question_type.question_description",
+   "fieldname": "description",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Description",
+   "reqd": 1,
+   "width": "20px"
+  },
+  {
+   "fetch_from": "question_type.expected_score",
+   "fieldname": "benchmark_score",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Benchmark Score",
+   "reqd": 1,
+   "width": "5px"
+  },
+  {
+   "fieldname": "interview_score",
+   "fieldtype": "Data",
+   "label": "Interview Score",
+   "reqd": 1,
+   "width": "5px"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2021-08-24 10:29:26.008546",
+ "modified_by": "Administrator",
+ "module": "Recruitment Ext",
+ "name": "Interview Question",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}
