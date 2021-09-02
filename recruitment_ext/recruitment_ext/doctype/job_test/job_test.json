@@ -1,0 +1,74 @@
+{
+ "actions": [],
+ "allow_guest_to_view": 1,
+ "autoname": "field:title",
+ "creation": "2021-08-30 14:53:35.097239",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "title",
+  "description",
+  "questions",
+  "route",
+  "client_script"
+ ],
+ "fields": [
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "label": "Title",
+   "unique": 1
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text Editor",
+   "label": "Description"
+  },
+  {
+   "fieldname": "questions",
+   "fieldtype": "Table",
+   "label": "Questions",
+   "options": "Job Test Question"
+  },
+  {
+   "fieldname": "route",
+   "fieldtype": "Data",
+   "label": "Route"
+  },
+  {
+   "fieldname": "client_script",
+   "fieldtype": "Code",
+   "label": "Client Script"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [
+  {
+   "link_doctype": "Job Test Submission",
+   "link_fieldname": "job_test"
+  }
+ ],
+ "modified": "2021-09-01 18:55:52.779770",
+ "modified_by": "Administrator",
+ "module": "Recruitment Ext",
+ "name": "Job Test",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}
