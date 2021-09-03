@@ -9,15 +9,18 @@
  "field_order": [
   "title",
   "description",
+  "section_break_3",
   "questions",
-  "route",
-  "client_script"
+  "total_points",
+  "route"
  ],
  "fields": [
   {
    "fieldname": "title",
    "fieldtype": "Data",
+   "in_list_view": 1,
    "label": "Title",
+   "reqd": 1,
    "unique": 1
   },
   {
@@ -29,7 +32,8 @@
    "fieldname": "questions",
    "fieldtype": "Table",
    "label": "Questions",
-   "options": "Job Test Question"
+   "options": "Aptitude Test Question",
+   "reqd": 1
   },
   {
    "fieldname": "route",
@@ -37,22 +41,27 @@
    "label": "Route"
   },
   {
-   "fieldname": "client_script",
-   "fieldtype": "Code",
-   "label": "Client Script"
+   "fieldname": "total_points",
+   "fieldtype": "Int",
+   "label": "Total Points",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_3",
+   "fieldtype": "Section Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [
   {
-   "link_doctype": "Job Test Submission",
-   "link_fieldname": "job_test"
+   "link_doctype": "Aptitude Test Submission",
+   "link_fieldname": "aptitude_test"
   }
  ],
- "modified": "2021-09-01 18:55:52.779770",
+ "modified": "2021-09-03 16:45:03.558997",
  "modified_by": "Administrator",
  "module": "Recruitment Ext",
- "name": "Job Test",
+ "name": "Aptitude Test",
  "owner": "Administrator",
  "permissions": [
   {

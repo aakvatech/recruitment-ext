@@ -12,7 +12,6 @@
   "placeholder_text",
   "column_break_1",
   "correct_answer",
-  "validation",
   "points"
  ],
  "fields": [
@@ -52,11 +51,6 @@
    "label": "Correct Answer"
   },
   {
-   "fieldname": "validation",
-   "fieldtype": "Code",
-   "label": "Validation"
-  },
-  {
    "depends_on": "eval: doc.question_type == \"Answer\" || doc.question_type == \"Long Answer\" ",
    "description": "Will be shown on web form",
    "fieldname": "placeholder_text",
@@ -78,10 +72,10 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2021-09-01 13:23:16.675175",
+ "modified": "2021-09-02 12:12:16.180729",
  "modified_by": "Administrator",
  "module": "Recruitment Ext",
- "name": "Job Test Question",
+ "name": "Aptitude Test Question",
  "owner": "Administrator",
  "permissions": [],
  "search_fields": "question",

@@ -4,5 +4,5 @@
 # import frappe
 import unittest
 
-class TestJobTestQuestion(unittest.TestCase):
+class TestAptitudeTestQuestion(unittest.TestCase):
 	pass

@@ -7,11 +7,16 @@
  "field_order": [
   "job_applicant",
   "column_break_2",
-  "job_test",
+  "aptitude_test",
   "section_break_4",
   "answers",
+  "section_break_5",
   "earned_points",
-  "amended_from"
+  "column_break_8",
+  "total_points",
+  "column_break_10",
+  "amended_from",
+  "result_percentage"
  ],
  "fields": [
   {
@@ -25,52 +30,78 @@
    "set_only_once": 1
   },
   {
-   "fieldname": "job_test",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "Job Test",
-   "options": "Job Test",
-   "read_only": 1,
-   "reqd": 1,
-   "set_only_once": 1
-  },
-  {
-   "fieldname": "answers",
-   "fieldtype": "Table",
-   "label": "Answers",
-   "options": "Job Test Answer"
-  },
-  {
    "fieldname": "column_break_2",
    "fieldtype": "Column Break"
   },
   {
    "fieldname": "section_break_4",
-   "fieldtype": "Section Break"
+   "fieldtype": "Section Break",
+   "label": "Answers"
+  },
+  {
+   "fieldname": "answers",
+   "fieldtype": "Table",
+   "label": "Answers",
+   "options": "Aptitude Test Answer"
   },
   {
    "fieldname": "earned_points",
-   "fieldtype": "Data",
+   "fieldtype": "Int",
    "label": "Earned Points",
    "read_only": 1
+  },
+  {
+   "fieldname": "aptitude_test",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Aptitude Test",
+   "options": "Aptitude Test",
+   "read_only": 1,
+   "reqd": 1,
+   "set_only_once": 1
   },
   {
    "fieldname": "amended_from",
    "fieldtype": "Link",
    "label": "Amended From",
    "no_copy": 1,
-   "options": "Job Test Submission",
+   "options": "Aptitude Test Submission",
    "print_hide": 1,
    "read_only": 1
+  },
+  {
+   "fetch_from": "aptitude_test.total_points",
+   "fieldname": "total_points",
+   "fieldtype": "Int",
+   "label": "Total Points",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_5",
+   "fieldtype": "Section Break",
+   "label": "Result"
+  },
+  {
+   "fieldname": "column_break_8",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_10",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "result_percentage",
+   "fieldtype": "Data",
+   "label": "Result (%)"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2021-09-03 11:41:00.498023",
+ "modified": "2021-09-03 15:11:07.572676",
  "modified_by": "Administrator",
  "module": "Recruitment Ext",
- "name": "Job Test Submission",
+ "name": "Aptitude Test Submission",
  "owner": "Administrator",
  "permissions": [
   {
