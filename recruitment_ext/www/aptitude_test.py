@@ -3,18 +3,16 @@ import json
 import frappe
 from frappe import bold
 
-# TODO: change email id
+
 CONTACT_MSG = (
-    "<br><br>If this seems like a mistake, please email "
-    "<a href='mailto:info@aakvatech.com'>info@aakvatech.com</a> "
-    "for support."
+    "<br><br>If this seems like a mistake, please email us for support."
 )
 
 
 def get_context(context):
     validate_query_params()
     job_opening = frappe.get_doc("Job Opening", frappe.form_dict["job_opening"])
-    aptitude_test = frappe.get_doc("Aptitude Test", job_opening.job_test)
+    aptitude_test = frappe.get_doc("Aptitude Test", job_opening.aptitude_test)
 
     keys_to_include = {
         "name",
@@ -50,8 +48,7 @@ def submit_aptitude_test(submission):
         filters={"parent": submission["aptitude_test"]},
         fields=["*"],
     )
-    validate_apptitude_test_submision(questions, submission)
-    print("passed")
+    validate_aptitude_test_submision(questions, submission)
     answers = prepare_answers(questions, submission)
     doc = frappe.get_doc(
         {
@@ -62,7 +59,9 @@ def submit_aptitude_test(submission):
             "total_earned_points": sum(ans["earned_points"] for ans in answers),
         }
     )
+    doc.flags.ignore_permissions = True
     doc.submit()
+    # redirect("Thanks for taking the test! We will get in touch shortly.", "Success!")
 
 
 def validate_query_params():
@@ -98,7 +97,7 @@ def prepare_answers(questions, submission):
             "earned_points": 0,
         }
 
-        if question.question_type == "Multi Select":
+        if question.question_type == "MCQ - Multiple Answers":
             answer["answer"] = "\n".join(
                 (
                     option.strip()
@@ -111,7 +110,7 @@ def prepare_answers(questions, submission):
         # calculate points
         if (
             question.correct_answer
-            and question.question_type in ("MCQ", "Answer", "Multi Select")
+            and question.question_type != "Long Answer"
             and question.correct_answer.strip() == answer["answer"].strip()
         ):
             answer["earned_points"] = question.points
@@ -120,7 +119,7 @@ def prepare_answers(questions, submission):
     return answers
 
 
-def validate_apptitude_test_submision(questions, submission):
+def validate_aptitude_test_submision(questions, submission):
     # TODO: uncomment below validation after getting applicant from form
     # validate_job_applicant(submission)
     error_message = ""
@@ -135,7 +134,7 @@ def validate_apptitude_test_submision(questions, submission):
                 f"The question: { bold(question.question) } is required!", "li"
             )
 
-        if question.question_type != "Multi Select":
+        if question.question_type != "MCQ - Multiple Answers":
             continue
 
         number_of_answers = len(submission.answers.get(question.name, []))

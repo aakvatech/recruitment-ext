@@ -16,8 +16,8 @@ frappe.ui.form.on('Aptitude Test Answer', {
 });
 
 function validate_earned_points(row) {
-	if (row.earned_points > row.points) {
-		frappe.throw(`<b>Earned Points(${row.earned_points})</b> can not be greater than <b>Points(${row.points})</b>`);
+	if (row.earned_points > row.max_points) {
+		frappe.throw(`<b>Earned Points(${row.earned_points})</b> can not be greater than <b>Points(${row.max_points})</b>`);
 	}
 }
 

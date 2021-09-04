@@ -10,7 +10,7 @@
   "answer",
   "column_break_4",
   "earned_points",
-  "points"
+  "max_points"
  ],
  "fields": [
   {
@@ -31,14 +31,6 @@
    "set_only_once": 1
   },
   {
-   "fetch_from": "question_link.points",
-   "fieldname": "points",
-   "fieldtype": "Int",
-   "in_list_view": 1,
-   "label": "Points",
-   "read_only": 1
-  },
-  {
    "fieldname": "question_link",
    "fieldtype": "Link",
    "label": "Question Link",
@@ -57,12 +49,20 @@
   {
    "fieldname": "column_break_4",
    "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "question_link.points",
+   "fieldname": "max_points",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Max. Points",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2021-09-03 16:39:02.053521",
+ "modified": "2021-09-04 15:06:41.917558",
  "modified_by": "Administrator",
  "module": "Recruitment Ext",
  "name": "Aptitude Test Answer",

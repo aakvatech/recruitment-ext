@@ -4,3 +4,4 @@
 *.swp
 tags
 recruitment_ext/docs/current
+.vscode/

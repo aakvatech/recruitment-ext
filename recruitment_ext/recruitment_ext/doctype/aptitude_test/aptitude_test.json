@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_guest_to_view": 1,
+ "allow_rename": 1,
  "autoname": "field:title",
  "creation": "2021-08-30 14:53:35.097239",
  "doctype": "DocType",
@@ -11,8 +12,7 @@
   "description",
   "section_break_3",
   "questions",
-  "total_points",
-  "route"
+  "total_points"
  ],
  "fields": [
   {
@@ -36,11 +36,6 @@
    "reqd": 1
   },
   {
-   "fieldname": "route",
-   "fieldtype": "Data",
-   "label": "Route"
-  },
-  {
    "fieldname": "total_points",
    "fieldtype": "Int",
    "label": "Total Points",
@@ -51,14 +46,13 @@
    "fieldtype": "Section Break"
   }
  ],
- "index_web_pages_for_search": 1,
  "links": [
   {
    "link_doctype": "Aptitude Test Submission",
    "link_fieldname": "aptitude_test"
   }
  ],
- "modified": "2021-09-03 16:45:03.558997",
+ "modified": "2021-09-04 14:27:47.699809",
  "modified_by": "Administrator",
  "module": "Recruitment Ext",
  "name": "Aptitude Test",
@@ -78,6 +72,5 @@
   }
  ],
  "sort_field": "modified",
- "sort_order": "DESC",
- "track_changes": 1
+ "sort_order": "DESC"
 }

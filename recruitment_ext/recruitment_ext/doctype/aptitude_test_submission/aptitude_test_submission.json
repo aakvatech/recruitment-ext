@@ -15,8 +15,9 @@
   "column_break_8",
   "total_points",
   "column_break_10",
-  "amended_from",
-  "result_percentage"
+  "result_percentage",
+  "section_break_12",
+  "amended_from"
  ],
  "fields": [
   {
@@ -93,12 +94,16 @@
    "fieldname": "result_percentage",
    "fieldtype": "Data",
    "label": "Result (%)"
+  },
+  {
+   "fieldname": "section_break_12",
+   "fieldtype": "Section Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2021-09-03 15:11:07.572676",
+ "modified": "2021-09-04 15:07:57.125995",
  "modified_by": "Administrator",
  "module": "Recruitment Ext",
  "name": "Aptitude Test Submission",

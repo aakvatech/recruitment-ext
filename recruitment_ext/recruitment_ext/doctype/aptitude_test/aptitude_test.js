@@ -8,12 +8,10 @@ frappe.ui.form.on('Aptitude Test', {
 });
 
 frappe.ui.form.on('Aptitude Test Question', {
-	points: calculate_total_points
+	points(frm) {
+		const total_points = frm.doc.questions.reduce((sum, question) =>
+			sum + (question.question ? question.points : 0)
+			, 0);
+		frm.set_value("total_points", total_points);
+	}
 });
-
-function calculate_total_points(frm) {
-	const total_points = frm.doc.questions.reduce((sum, question) =>
-		sum + (question.question ? question.points : 0)
-		, 0);
-	frm.set_value("total_points", total_points);
-}
