@@ -9,8 +9,10 @@
   "candidate_name",
   "candidate_email",
   "phone_no",
+  "age",
   "col_break",
   "job_role",
+  "marital_status",
   "date_of_interview",
   "time_of_interview",
   "sec_break",
@@ -33,8 +35,10 @@
   {
    "fieldname": "candidate_name",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Candidate Name",
    "options": "Applicant",
+   "reqd": 1,
    "unique": 1
   },
   {
@@ -83,7 +87,7 @@
    "fieldname": "questn_list",
    "fieldtype": "Table",
    "label": "Question",
-   "options": "Interview Question"
+   "options": "Interview Data"
   },
   {
    "fieldname": "recommend",
@@ -149,12 +153,24 @@
    "options": "Interview Record",
    "print_hide": 1,
    "read_only": 1
+  },
+  {
+   "fetch_from": "candidate_name.age",
+   "fieldname": "age",
+   "fieldtype": "Data",
+   "label": "Age"
+  },
+  {
+   "fetch_from": "candidate_name.marital_status",
+   "fieldname": "marital_status",
+   "fieldtype": "Data",
+   "label": "Marital  Status"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2021-08-24 15:10:22.143531",
+ "modified": "2021-09-04 12:58:18.882483",
  "modified_by": "Administrator",
  "module": "Recruitment Ext",
  "name": "Interview Record",
