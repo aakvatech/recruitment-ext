@@ -18,7 +18,7 @@ app_license = "MIT"
 
 # include js, css files in header of web template
 # web_include_css = "/assets/recruitment_ext/css/recruitment_ext.css"
-web_include_js = "/assets/js/recruitment_ext_web.min.js"
+# web_include_js = "/assets/js/recruitment_ext_web.min.js"
 
 # include custom scss in every website theme (without file extension ".scss")
 # website_theme_scss = "recruitment_ext/public/scss/website"
@@ -51,7 +51,7 @@ web_include_js = "/assets/js/recruitment_ext_web.min.js"
 # ----------
 
 # automatically create page for each record of this doctype
-website_generators = ["Aptitude Test"]
+# website_generators = []
 
 # Installation
 # ------------

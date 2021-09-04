@@ -9,7 +9,6 @@ frappe.ui.form.on('Aptitude Test', {
 
 frappe.ui.form.on('Aptitude Test Question', {
 	points: calculate_total_points
-	,
 });
 
 function calculate_total_points(frm) {

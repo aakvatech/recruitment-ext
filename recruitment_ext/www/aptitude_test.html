@@ -1,0 +1,82 @@
+{% extends "templates/web.html" %}
+
+{% set job_applicant = frappe.form_dict.job_applicant %}
+
+{% block style %}
+<link rel="stylesheet" href="/assets/css/desk.min.css">
+<style>
+	.aptitude-test-form-wrapper .section-body{
+		flex-direction: column;
+		width: auto;
+		padding: 0 1rem;
+	}
+</style>
+{% endblock %}
+
+ {% macro make_input(question) %}
+	<div class="frappe-control input-max-width">
+		<div class="form-group">
+			<div class="control-input-wrapper">
+				<div class="control-input">
+					{% if question.question_type == 'Answer' %}
+						<input type="text" class="form-control bold" placeholder="{{ question.placeholder_text or '' }}" autocomplete="off" name="{{ question.name }}" data-fieldname="{{ question.name }}" data-question-type="{{ question.question_type }}">
+					{% elif question.question_type == 'Long Answer' %}
+						<textarea class="form-control bold" style="height: 300px;" placeholder="{{ question.placeholder_text or '' }}" autocomplete="off" name="{{ question.name }}" data-fieldname="{{ question.name }}" data-question-type="{{ question.question_type }}"></textarea>
+					{% elif question.question_type in ('MCQ', 'Multi Select') %}
+						{% for option in question.options.split("\n") %}
+							<label>
+								<input type="{{ 'radio' if question.question_type == 'MCQ' else 'checkbox' }}" name="{{ question.name }}" data-fieldname="{{ question.name }}" data-question-type="{{ question.question_type }}" value="{{ option }}">
+								{{ option }}
+							</label>
+							<br>
+						{% endfor %}
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</div>
+ {% endmacro %}
+
+{% block page_content %}
+<h2>{{ title }}</h2>
+<p>{{ description or '' }}</p>
+<br>
+<br>
+<div role="form" class="container">
+	<div class="aptitude-test-form-wrapper">
+		<form action="" id="AptitudeTest" method="POST">
+			{% for question in questions %}
+				<div class="form-dashboard-section">
+					<div class="section-head">
+						{{ question.question }}
+						{% if question.required %}
+						<sup style="color: red;">*</sup>
+						{% endif %}
+					</div>
+					<div class="section-body">
+						{{ make_input(question) }}
+					</div>
+				</div>
+			{% endfor %}
+		</form>
+		<button class='btn btn-primary' id="submitAptitudeTest">{{ _("Submit") }}</button>
+	</div>
+</div>
+
+{% endblock %}
+
+{% block script %}
+<script>
+ 	frappe.provide("frappe.aptitude_test");
+	frappe.aptitude_test = {
+		docname: "{{ docname }}",
+		job_applicant: "{{ job_applicant or ''}}",
+		questions: {{ questions_json }}
+	}
+
+</script>
+<script type="text/javascript" src="/assets/frappe/js/lib/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="/assets/js/dialog.min.js"></script>
+<script type="text/javascript" src="/assets/js/bootstrap-4-web.min.js"></script>
+<script type="text/javascript" src="web_assets/aptitude_test.js"></script>
+{% endblock %}
