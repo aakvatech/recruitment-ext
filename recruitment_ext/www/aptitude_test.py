@@ -70,6 +70,11 @@ def submit_aptitude_test(submission):
     doc.submit()
 
 
+@frappe.whitelist(allow_guest=True)
+def get_aptitude_test(job_opening):
+    return frappe.db.get_value("Job Opening", job_opening, "aptitude_test")
+
+
 def validate_query_params():
     for key in ("job_opening", "job_applicant"):
         if not frappe.form_dict.get(key):
