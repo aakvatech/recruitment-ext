@@ -11,7 +11,7 @@
   "section_break_4",
   "answers",
   "section_break_5",
-  "earned_points",
+  "total_earned_points",
   "column_break_8",
   "total_points",
   "column_break_10",
@@ -44,12 +44,6 @@
    "fieldtype": "Table",
    "label": "Answers",
    "options": "Aptitude Test Answer"
-  },
-  {
-   "fieldname": "earned_points",
-   "fieldtype": "Int",
-   "label": "Earned Points",
-   "read_only": 1
   },
   {
    "fieldname": "aptitude_test",
@@ -91,6 +85,7 @@
    "fieldtype": "Column Break"
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "result_percentage",
    "fieldtype": "Data",
    "label": "Result (%)"
@@ -98,12 +93,19 @@
   {
    "fieldname": "section_break_12",
    "fieldtype": "Section Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "total_earned_points",
+   "fieldtype": "Int",
+   "label": "Earned Points",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2021-09-04 15:07:57.125995",
+ "modified": "2021-09-06 17:07:41.929658",
  "modified_by": "Administrator",
  "module": "Recruitment Ext",
  "name": "Aptitude Test Submission",

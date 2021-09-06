@@ -4,15 +4,23 @@ import frappe
 from frappe import bold
 
 
-CONTACT_MSG = (
-    "<br><br>If this seems like a mistake, please email us for support."
-)
+CONTACT_MSG = "<br><br>If this seems like a mistake, please email us for support."
 
 
 def get_context(context):
     validate_query_params()
     job_opening = frappe.get_doc("Job Opening", frappe.form_dict["job_opening"])
+    if not job_opening.get("aptitude_test"):
+        return
+
     aptitude_test = frappe.get_doc("Aptitude Test", job_opening.aptitude_test)
+
+    # if Aptitude test is already submitted for given Applicant, show success message (handled in js)
+    if frappe.db.get_value(
+        "Aptitude Test Submission",
+        filters={"job_applicant": frappe.form_dict["job_applicant"]},
+    ):
+        context["has_submitted"] = 1
 
     keys_to_include = {
         "name",
@@ -56,15 +64,15 @@ def submit_aptitude_test(submission):
             "aptitude_test": submission["aptitude_test"],
             "job_applicant": submission["job_applicant"],
             "answers": answers,
-            "total_earned_points": sum(ans["earned_points"] for ans in answers),
         }
     )
     doc.flags.ignore_permissions = True
     doc.submit()
 
+
 def validate_query_params():
     for key in ("job_opening", "job_applicant"):
-        if key not in frappe.form_dict:
+        if not frappe.form_dict.get(key):
             redirect(incomplete_url=True)
 
 
@@ -118,10 +126,10 @@ def prepare_answers(questions, submission):
 
 
 def validate_aptitude_test_submision(questions, submission):
-    # TODO: uncomment below validation after getting applicant from form
-    # validate_job_applicant(submission)
+    def wrap_with_html_tag(string, tag):
+        return f"<{tag}>{string}</{tag}>"
+
     error_message = ""
-    print(questions)
     for question in questions:
         # TODO: remove these 2 lines after adding fields to the doctype
         question.min_allowed_answers = 1
@@ -155,23 +163,3 @@ def validate_aptitude_test_submision(questions, submission):
             f"Following Questions have errors: <br><br><ul> {error_message} </ul>"
         )
         frappe.throw(error_message)
-
-
-def validate_job_applicant(submission):
-    # TODO: add docField `allow_multiple_solutions` in `Job Test`
-    if not submission.get("job_applicant"):
-        frappe.throw("Invalid submission, no Job Applicant provided!")
-
-    if frappe.db.get_value(
-        "Aptitude Test Submission",
-        filters={"job_applicant": submission["job_applicant"]},
-    ):
-        frappe.throw(
-            "Test has already been submitted for {}. You're not allowed to take test again!".format(
-                submission["job_applicant"]
-            )
-        )
-
-
-def wrap_with_html_tag(string, tag):
-    return f"<{tag}>{string}</{tag}>"
