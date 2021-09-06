@@ -38,6 +38,13 @@
  {% endmacro %}
 
 {% block page_content %}
+<div class="alert alert-warning alert-dismissable">
+Your application is 50% complete! Please submit the below test to fully ...
+<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
 <h2>{{ title }}</h2>
 <p>{{ description or '' }}</p>
 <br>

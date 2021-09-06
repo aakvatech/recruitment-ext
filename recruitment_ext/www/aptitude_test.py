@@ -61,8 +61,6 @@ def submit_aptitude_test(submission):
     )
     doc.flags.ignore_permissions = True
     doc.submit()
-    # redirect("Thanks for taking the test! We will get in touch shortly.", "Success!")
-
 
 def validate_query_params():
     for key in ("job_opening", "job_applicant"):

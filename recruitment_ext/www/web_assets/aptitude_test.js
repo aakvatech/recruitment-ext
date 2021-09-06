@@ -22,6 +22,9 @@ function submitAptitudeTest(e) {
 		frappe.call({
 			method: "recruitment_ext.www.aptitude_test.submit_aptitude_test",
 			args: { submission },
+			callback(res) {
+				if (res.exc) return;
+			}
 		});
 	});
 }

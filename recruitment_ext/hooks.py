@@ -9,3 +9,7 @@ app_color = "grey"
 app_email = "info@aakvatech.com"
 app_license = "MIT"
 after_install = "recruitment_ext.install.after_install"
+
+webform_include_js = {
+    "Job Applicant": "scripts/web/job_application.js"
+}
