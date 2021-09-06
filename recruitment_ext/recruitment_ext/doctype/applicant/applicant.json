@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "autoname": "field:applicant_name",
  "creation": "2021-08-20 21:47:29.735096",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -8,13 +9,18 @@
   "applicant_name",
   "email",
   "phone_no",
-  "designation_applied"
+  "designation_applied",
+  "col_break",
+  "marital_status",
+  "age",
+  "religion"
  ],
  "fields": [
   {
    "fieldname": "applicant_name",
    "fieldtype": "Data",
-   "label": "Applicant Name"
+   "label": "Applicant Name",
+   "unique": 1
   },
   {
    "fieldname": "email",
@@ -30,11 +36,30 @@
    "fieldname": "designation_applied",
    "fieldtype": "Data",
    "label": "Designation Applied"
+  },
+  {
+   "fieldname": "col_break",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "marital_status",
+   "fieldtype": "Data",
+   "label": "Marital Status"
+  },
+  {
+   "fieldname": "age",
+   "fieldtype": "Data",
+   "label": "Age"
+  },
+  {
+   "fieldname": "religion",
+   "fieldtype": "Data",
+   "label": "Religion"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-08-24 12:18:46.854762",
+ "modified": "2021-09-02 13:04:18.086938",
  "modified_by": "Administrator",
  "module": "Recruitment Ext",
  "name": "Applicant",

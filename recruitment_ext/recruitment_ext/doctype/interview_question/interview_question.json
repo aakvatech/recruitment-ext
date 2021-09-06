@@ -1,62 +1,68 @@
 {
  "actions": [],
- "autoname": "field:question_type",
- "creation": "2021-08-23 11:50:15.312599",
+ "autoname": "field:questn",
+ "creation": "2021-09-04 12:22:09.802984",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "question_type",
-  "description",
-  "benchmark_score",
-  "interview_score"
+  "questn",
+  "question_description",
+  "expected_score",
+  "actual_score"
  ],
  "fields": [
   {
-   "fieldname": "question_type",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "Question Type",
-   "options": "Question Part One",
-   "reqd": 1,
-   "unique": 1,
-   "width": "20px"
-  },
-  {
-   "fetch_from": "question_type.question_description",
-   "fieldname": "description",
+   "bold": 1,
+   "fieldname": "questn",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Description",
+   "label": "Question",
    "reqd": 1,
-   "width": "20px"
+   "unique": 1
   },
   {
-   "fetch_from": "question_type.expected_score",
-   "fieldname": "benchmark_score",
-   "fieldtype": "Data",
+   "fieldname": "question_description",
+   "fieldtype": "Text Editor",
    "in_list_view": 1,
-   "label": "Benchmark Score",
-   "reqd": 1,
-   "width": "5px"
+   "label": "Question Description",
+   "reqd": 1
   },
   {
-   "fieldname": "interview_score",
-   "fieldtype": "Data",
-   "label": "Interview Score",
-   "reqd": 1,
-   "width": "5px"
+   "fieldname": "expected_score",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Expected Score",
+   "reqd": 1
+  },
+  {
+   "fieldname": "actual_score",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Actual Score"
   }
  ],
  "index_web_pages_for_search": 1,
- "istable": 1,
  "links": [],
- "modified": "2021-08-24 10:29:26.008546",
+ "modified": "2021-09-04 12:22:09.802984",
  "modified_by": "Administrator",
  "module": "Recruitment Ext",
  "name": "Interview Question",
  "owner": "Administrator",
- "permissions": [],
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
  "sort_field": "modified",
  "sort_order": "DESC",
  "track_changes": 1
