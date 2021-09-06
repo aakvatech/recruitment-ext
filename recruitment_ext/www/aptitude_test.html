@@ -1,0 +1,87 @@
+{% extends "templates/web.html" %}
+
+{% block style %}
+<link rel="stylesheet" href="/assets/css/desk.min.css">
+<link rel="stylesheet" href="web_assets/aptitude_test.css">
+
+{% endblock %}
+
+{% macro common_input_attributes(question) %}
+	name="{{ question.name }}" data-fieldname="{{ question.name }}" data-question-type="{{ question.question_type }}" {{ required if question.required else ''}}
+{% endmacro %}
+
+{% macro make_input(question) %}
+	<div class="frappe-control input-max-width">
+		<div class="form-group">
+			<div class="control-input-wrapper">
+				<div class="control-input">
+					{% if question.question_type == 'Short Answer' %}
+						<input type="text" class="form-control bold" placeholder="{{ question.placeholder_text or '' }}" {{ common_input_attributes(question) }}>
+					{% elif question.question_type == 'Long Answer' %}
+						<textarea class="form-control bold" style="height: 300px;" placeholder="{{ question.placeholder_text or '' }}" {{ common_input_attributes(question) }}></textarea>
+					{% elif question.question_type.startswith('MCQ') %}
+						{% for option in question.options.split("\n") %}
+							<label>
+								<input type="{{ 'radio' if question.question_type == 'MCQ - Single Answer' else 'checkbox' }}"  value="{{ option }}" {{ common_input_attributes(question) }}>
+								{{ option }}
+							</label>
+							<br>
+						{% endfor %}
+					{% endif %}
+					<h5 class="invalid-feedback">
+						This question is required!
+					</h5>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endmacro %}
+
+{% block page_content %}
+<div class="alert alert-warning alert-dismissable">
+Your application is 50% complete! Please submit the below test to fully ...
+<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+<h2>{{ title }}</h2>
+<p>{{ description or '' }}</p>
+<br>
+<br>
+<div class="container">
+	<div class="aptitude-test-form-wrapper">
+		<form id="AptitudeTest" method="POST" novalidate>
+			{% for question in questions %}
+				<div class="form-dashboard-section">
+					<div class="section-head">
+						{{ question.question }}
+						{% if question.required %}
+						<sup style="color: red;">*</sup>
+						{% endif %}
+					</div>
+					<div class="section-body">
+						{{ make_input(question) }}
+					</div>
+				</div>
+			{% endfor %}
+			<button class='btn btn-primary' type="submit">{{ _("Submit") }}</button>
+		</form>
+	</div>
+</div>
+
+{% endblock %}
+
+{% block script %}
+<script>
+ 	frappe.provide("frappe.aptitude_test");
+	frappe.aptitude_test.has_submitted = {{ has_submitted or 0}},
+	frappe.aptitude_test.docname = "{{ docname }}",
+	frappe.aptitude_test.job_applicant = "{{ frappe.form_dict.job_applicant or ''}}",
+	frappe.aptitude_test.questions = {{ questions_json or [] }};
+</script>
+<script type="text/javascript" src="/assets/frappe/js/lib/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="/assets/js/dialog.min.js"></script>
+<script type="text/javascript" src="/assets/js/bootstrap-4-web.min.js"></script>
+<script type="text/javascript" src="web_assets/aptitude_test.js"></script>
+{% endblock %}

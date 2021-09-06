@@ -1,0 +1,87 @@
+{
+ "actions": [],
+ "creation": "2021-08-30 13:23:06.248158",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "required",
+  "question",
+  "question_type",
+  "options",
+  "placeholder_text",
+  "column_break_1",
+  "correct_answer",
+  "points"
+ ],
+ "fields": [
+  {
+   "fieldname": "question",
+   "fieldtype": "Text",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "label": "Question",
+   "reqd": 1
+  },
+  {
+   "default": "Short Answer",
+   "fieldname": "question_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Question Type",
+   "options": "Short Answer\nLong Answer\nMCQ - Single Answer\nMCQ - Multiple Answers",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:doc.question_type.startsWith(\"MCQ\")",
+   "fieldname": "options",
+   "fieldtype": "Text",
+   "label": "Options"
+  },
+  {
+   "default": "1",
+   "fieldname": "required",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Required"
+  },
+  {
+   "fieldname": "correct_answer",
+   "fieldtype": "Text",
+   "in_list_view": 1,
+   "label": "Correct Answer"
+  },
+  {
+   "depends_on": "eval: doc.question_type == \"Short Answer\" || doc.question_type == \"Long Answer\" ",
+   "description": "Will be shown on web form",
+   "fieldname": "placeholder_text",
+   "fieldtype": "Data",
+   "label": "Placeholder Text"
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "1",
+   "fieldname": "points",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Points"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2021-09-04 15:15:50.266673",
+ "modified_by": "Administrator",
+ "module": "Recruitment Ext",
+ "name": "Aptitude Test Question",
+ "owner": "Administrator",
+ "permissions": [],
+ "search_fields": "question",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "title_field": "question",
+ "track_changes": 1
+}
