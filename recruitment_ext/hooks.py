@@ -11,5 +11,9 @@ app_license = "MIT"
 after_install = "recruitment_ext.install.after_install"
 
 webform_include_js = {
-    "Job Applicant": "scripts/web/job_application.js"
+    "Job Applicant": "scripts/web/job_application.js",
+}
+
+override_doctype_dashboards = {
+    "Job Applicant": "recruitment_ext.api.job_applicant_dashboard.get_data",
 }
