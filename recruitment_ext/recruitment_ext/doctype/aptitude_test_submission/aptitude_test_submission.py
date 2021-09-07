@@ -10,6 +10,7 @@ class AptitudeTestSubmission(Document):
     def validate(self):
         self.calculate_result()
         self.validate_total_earned_points()
+        self.set_total_earned_points_to_job_applicant()
 
     def on_update_after_submit(self):
         self.validate_total_earned_points()
@@ -25,3 +26,11 @@ class AptitudeTestSubmission(Document):
     def validate_total_earned_points(self):
         if self.total_earned_points > self.total_points:
             frappe.throw("Earned Points can no be greater than Total Points!")
+
+    def set_total_earned_points_to_job_applicant(self):
+        frappe.db.set_value(
+            "Job Applicant", 
+            self.job_applicant,
+            'aptitude_test_score', 
+            self.total_earned_points
+        )

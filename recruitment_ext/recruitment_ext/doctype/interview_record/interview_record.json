@@ -6,6 +6,7 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
+  "candidate",
   "candidate_name",
   "candidate_email",
   "phone_no",
@@ -33,11 +34,11 @@
  ],
  "fields": [
   {
+   "fetch_from": "candidate.applicant_name",
    "fieldname": "candidate_name",
-   "fieldtype": "Link",
+   "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Candidate Name",
-   "options": "Applicant",
    "reqd": 1,
    "unique": 1
   },
@@ -51,7 +52,7 @@
    "fieldtype": "Column Break"
   },
   {
-   "fetch_from": "candidate_name.designation_applied",
+   "fetch_from": "candidate.job_title",
    "fieldname": "job_role",
    "fieldtype": "Data",
    "label": "Job Role"
@@ -67,13 +68,13 @@
    "label": "Interview Questions"
   },
   {
-   "fetch_from": "candidate_name.email",
+   "fetch_from": "candidate.email_id",
    "fieldname": "candidate_email",
    "fieldtype": "Data",
    "label": "Candidate Email"
   },
   {
-   "fetch_from": "candidate_name.phone_no",
+   "fetch_from": "candidate.phone_number",
    "fieldname": "phone_no",
    "fieldtype": "Int",
    "label": "Phone Number"
@@ -137,6 +138,7 @@
   {
    "fieldname": "signature",
    "fieldtype": "Signature",
+   "hidden": 1,
    "label": "Interviewer Signature: "
   },
   {
@@ -155,22 +157,29 @@
    "read_only": 1
   },
   {
-   "fetch_from": "candidate_name.age",
    "fieldname": "age",
    "fieldtype": "Data",
    "label": "Age"
   },
   {
-   "fetch_from": "candidate_name.marital_status",
    "fieldname": "marital_status",
    "fieldtype": "Data",
    "label": "Marital  Status"
+  },
+  {
+   "bold": 1,
+   "fieldname": "candidate",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Candidate",
+   "options": "Job Applicant",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2021-09-04 12:58:18.882483",
+ "modified": "2021-09-07 11:54:30.171849",
  "modified_by": "Administrator",
  "module": "Recruitment Ext",
  "name": "Interview Record",

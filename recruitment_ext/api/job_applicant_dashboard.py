@@ -12,4 +12,22 @@ def get_data(data):
                 ],
             },
         ],
+        "fieldname": "candidate",
+        "transactions": [
+            {
+                "label": _("Interview"),
+                "items":[
+                    "Interview Record"
+                ],
+            },
+        ],
+        "fieldname": "questn",
+        "transactions":[
+            {
+                "label": _("Questions"),
+                "items":[
+                    "Interview Question"
+                ],
+            },
+        ],
     }
