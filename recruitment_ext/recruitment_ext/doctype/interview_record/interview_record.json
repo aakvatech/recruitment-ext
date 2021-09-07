@@ -1,0 +1,195 @@
+{
+ "actions": [],
+ "autoname": "field:candidate_name",
+ "creation": "2021-08-23 10:06:58.336169",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "candidate_name",
+  "candidate_email",
+  "phone_no",
+  "age",
+  "col_break",
+  "job_role",
+  "marital_status",
+  "date_of_interview",
+  "time_of_interview",
+  "sec_break",
+  "questn_list",
+  "sec_break_2",
+  "total_benchmark_score",
+  "col_break_2",
+  "total_interview_score",
+  "sec_break_3",
+  "recommend",
+  "comment",
+  "interviewer",
+  "col_break_3",
+  "next_step",
+  "additional_remarks",
+  "signature",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "candidate_name",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Candidate Name",
+   "options": "Applicant",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "interviewer",
+   "fieldtype": "Data",
+   "label": "Name of Interviewer"
+  },
+  {
+   "fieldname": "col_break",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "candidate_name.designation_applied",
+   "fieldname": "job_role",
+   "fieldtype": "Data",
+   "label": "Job Role"
+  },
+  {
+   "fieldname": "time_of_interview",
+   "fieldtype": "Time",
+   "label": "Time"
+  },
+  {
+   "fieldname": "sec_break",
+   "fieldtype": "Section Break",
+   "label": "Interview Questions"
+  },
+  {
+   "fetch_from": "candidate_name.email",
+   "fieldname": "candidate_email",
+   "fieldtype": "Data",
+   "label": "Candidate Email"
+  },
+  {
+   "fetch_from": "candidate_name.phone_no",
+   "fieldname": "phone_no",
+   "fieldtype": "Int",
+   "label": "Phone Number"
+  },
+  {
+   "fieldname": "date_of_interview",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "fieldname": "questn_list",
+   "fieldtype": "Table",
+   "label": "Question",
+   "options": "Interview Data"
+  },
+  {
+   "fieldname": "recommend",
+   "fieldtype": "Select",
+   "label": "Would you recommend EAF to hire the candidate (tick only the box that applies)",
+   "options": "\nYes\nNo\nNot sure"
+  },
+  {
+   "fieldname": "comment",
+   "fieldtype": "Small Text",
+   "label": "Comment reasons for the choice above: "
+  },
+  {
+   "fieldname": "additional_remarks",
+   "fieldtype": "Small Text",
+   "label": "Additional Remark"
+  },
+  {
+   "fieldname": "sec_break_2",
+   "fieldtype": "Section Break",
+   "label": "Total Marks"
+  },
+  {
+   "default": "100",
+   "fieldname": "total_benchmark_score",
+   "fieldtype": "Float",
+   "label": "Total Benchmark Score"
+  },
+  {
+   "fieldname": "col_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_interview_score",
+   "fieldtype": "Float",
+   "label": "Total Interview Score"
+  },
+  {
+   "fieldname": "sec_break_3",
+   "fieldtype": "Section Break",
+   "label": "Additional notes to support your recommendation:"
+  },
+  {
+   "fieldname": "col_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "signature",
+   "fieldtype": "Signature",
+   "label": "Interviewer Signature: "
+  },
+  {
+   "fieldname": "next_step",
+   "fieldtype": "Select",
+   "label": "Next Steps",
+   "options": "\nCall for 2nd Interview (above 70%)\nConsider reviewing the application (50% - 70%)\nDisqualified (Below 50%)"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Interview Record",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fetch_from": "candidate_name.age",
+   "fieldname": "age",
+   "fieldtype": "Data",
+   "label": "Age"
+  },
+  {
+   "fetch_from": "candidate_name.marital_status",
+   "fieldname": "marital_status",
+   "fieldtype": "Data",
+   "label": "Marital  Status"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2021-09-04 12:58:18.882483",
+ "modified_by": "Administrator",
+ "module": "Recruitment Ext",
+ "name": "Interview Record",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}
