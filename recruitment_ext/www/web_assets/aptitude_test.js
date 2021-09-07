@@ -15,11 +15,6 @@ function onload() {
 
 function submitAptitudeTest(e) {
 	e.preventDefault();
-	const form = $("form#AptitudeTest")[0];
-	if (!form.checkValidity()) {
-		form.classList.add('was-validated');
-		return;
-	}
 	frappe.confirm("Are you sure you want to continue?", function () {
 		const submission = {
 			job_applicant: frappe.aptitude_test.job_applicant,
