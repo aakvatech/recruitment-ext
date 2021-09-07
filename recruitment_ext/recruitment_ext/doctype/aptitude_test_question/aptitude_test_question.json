@@ -12,7 +12,9 @@
   "placeholder_text",
   "column_break_1",
   "correct_answer",
-  "points"
+  "points",
+  "min_allowed_answers",
+  "max_allowed_answers"
  ],
  "fields": [
   {
@@ -68,12 +70,26 @@
    "fieldtype": "Int",
    "in_list_view": 1,
    "label": "Points"
+  },
+  {
+   "default": "1",
+   "depends_on": "eval: doc.question_type == 'MCQ - Multiple Answers' && doc.required",
+   "fieldname": "min_allowed_answers",
+   "fieldtype": "Int",
+   "label": "Min Allowed Answers"
+  },
+  {
+   "default": "1",
+   "depends_on": "eval: doc.question_type == 'MCQ - Multiple Answers' && doc.required",
+   "fieldname": "max_allowed_answers",
+   "fieldtype": "Int",
+   "label": "Max Allowed Answers"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2021-09-04 15:15:50.266673",
+ "modified": "2021-09-07 13:03:01.054779",
  "modified_by": "Administrator",
  "module": "Recruitment Ext",
  "name": "Aptitude Test Question",

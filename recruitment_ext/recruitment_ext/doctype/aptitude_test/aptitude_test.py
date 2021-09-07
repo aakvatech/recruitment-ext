@@ -7,5 +7,15 @@ from frappe.model.document import Document
 
 
 class AptitudeTest(Document):
-    def before_save(self):
+    def validate(self):
+        for question in self.questions:
+            if question.min_allowed_answers > question.max_allowed_answers:
+                frappe.throw(
+                    "{0} can no be greater than {1} for row #{2} in {3}".format(
+                        frappe.bold("Min Allowed Answers"),
+                        frappe.bold("Max Allowed Answers"),
+                        frappe.bold(question.idx),
+                        frappe.bold("Questions"),
+                    ),
+                )
         self.total_points = sum(question.points for question in self.questions)
