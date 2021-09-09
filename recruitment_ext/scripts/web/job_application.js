@@ -1,3 +1,4 @@
+
 frappe.ready(() => {
 	const { job_title } = frappe.utils.get_query_params();
 	if (!job_title) return;
