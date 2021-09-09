@@ -8,25 +8,13 @@ def get_data(data):
             {
                 "label": _("Aptitude Test"),
                 "items": [
-                    "Aptitude Test Submission",
+                    "Aptitude Test Submission"
                 ],
             },
-        ],
-        "fieldname": "candidate",
-        "transactions": [
             {
                 "label": _("Interview"),
-                "items":[
+                "items": [
                     "Interview Record"
-                ],
-            },
-        ],
-        "fieldname": "questn",
-        "transactions":[
-            {
-                "label": _("Questions"),
-                "items":[
-                    "Interview Question"
                 ],
             },
         ],
