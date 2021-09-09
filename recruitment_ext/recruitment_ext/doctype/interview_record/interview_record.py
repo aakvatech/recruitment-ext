@@ -18,7 +18,7 @@ class InterviewRecord(Document):
 	def set_total_score_to_job_applicant(self):
 		frappe.db.set_value(
             "Job Applicant", 
-            self.candidate,
+            self.job_applicant,
             'interview_score', 
             self.total_interview_score
         )

@@ -1,12 +1,12 @@
 {
  "actions": [],
- "autoname": "field:candidate_name",
+ "autoname": "HR-INT-.YYYY.-.#####",
  "creation": "2021-08-23 10:06:58.336169",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "candidate",
+  "job_applicant",
   "candidate_name",
   "candidate_email",
   "phone_no",
@@ -19,9 +19,9 @@
   "sec_break",
   "questn_list",
   "sec_break_2",
-  "total_benchmark_score",
-  "col_break_2",
   "total_interview_score",
+  "col_break_2",
+  "total_benchmark_score",
   "sec_break_3",
   "recommend",
   "comment",
@@ -34,13 +34,10 @@
  ],
  "fields": [
   {
-   "fetch_from": "candidate.applicant_name",
    "fieldname": "candidate_name",
    "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "Candidate Name",
-   "reqd": 1,
-   "unique": 1
+   "hidden": 1,
+   "label": "Candidate Name"
   },
   {
    "fieldname": "interviewer",
@@ -52,7 +49,7 @@
    "fieldtype": "Column Break"
   },
   {
-   "fetch_from": "candidate.job_title",
+   "fetch_from": "job_applicant.job_title",
    "fieldname": "job_role",
    "fieldtype": "Data",
    "label": "Job Role"
@@ -68,13 +65,13 @@
    "label": "Interview Questions"
   },
   {
-   "fetch_from": "candidate.email_id",
+   "fetch_from": "job_applicant.email_id",
    "fieldname": "candidate_email",
    "fieldtype": "Data",
    "label": "Candidate Email"
   },
   {
-   "fetch_from": "candidate.phone_number",
+   "fetch_from": "job_applicant.phone_number",
    "fieldname": "phone_no",
    "fieldtype": "Int",
    "label": "Phone Number"
@@ -168,7 +165,7 @@
   },
   {
    "bold": 1,
-   "fieldname": "candidate",
+   "fieldname": "job_applicant",
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Candidate",
@@ -179,7 +176,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2021-09-07 11:54:30.171849",
+ "modified": "2021-09-09 10:10:20.150712",
  "modified_by": "Administrator",
  "module": "Recruitment Ext",
  "name": "Interview Record",
