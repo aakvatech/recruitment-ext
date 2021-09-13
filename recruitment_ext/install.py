@@ -13,10 +13,10 @@ def make_custom_fields():
     custom_fields = {
         "Job Opening": [
             {
-                "fieldname": "aptitude_test",
-                "label": "Aptitude Test",
+                "fieldname": "aptitude_test_template",
+                "label": "Aptitude Test Template",
                 "fieldtype": "Link",
-                "options": "Aptitude Test",
+                "options": "Aptitude Test Template",
                 "insert_after": "department",
             },
         ],
