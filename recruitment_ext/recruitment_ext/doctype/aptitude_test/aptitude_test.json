@@ -41,7 +41,7 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Aptitude Test Template",
-   "options": "Aptitude Test",
+   "options": "Aptitude Test Template",
    "read_only": 1,
    "reqd": 1,
    "set_only_once": 1
@@ -74,7 +74,7 @@
    "fieldtype": "Column Break"
   },
   {
-   "fetch_from": "aptitude_test.total_points",
+   "fetch_from": "aptitude_test_template.total_points",
    "fieldname": "total_points",
    "fieldtype": "Int",
    "label": "Total Points",
@@ -102,21 +102,12 @@
    "options": "Aptitude Test",
    "print_hide": 1,
    "read_only": 1
-  },
-  {
-   "fieldname": "amended_from",
-   "fieldtype": "Link",
-   "label": "Amended From",
-   "no_copy": 1,
-   "options": "Aptitude Test",
-   "print_hide": 1,
-   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2021-09-15 00:18:07.533380",
+ "modified": "2021-09-15 13:30:27.500832",
  "modified_by": "Administrator",
  "module": "Recruitment Ext",
  "name": "Aptitude Test",
