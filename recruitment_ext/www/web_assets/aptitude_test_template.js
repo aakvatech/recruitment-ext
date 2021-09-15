@@ -4,7 +4,7 @@ function onload() {
 	if (frappe.aptitude_test_template.has_submitted)
 		return handle_success();
 
-	$("form#AptitudeTest").on('submit', submitAptitudeTest);
+	$("form#AptitudeTestTemplate").on('submit', submitAptitudeTestTemplate);
 
 	// settings up question_name, question_type map
 	frappe.aptitude_test_template.question_types = {};

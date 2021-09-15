@@ -60,7 +60,7 @@ def submit_aptitude_test_template(submission):
     answers = prepare_answers(questions, submission)
     doc = frappe.get_doc(
         {
-            "doctype": "Aptitude Test Submission",
+            "doctype": "Aptitude Test",
             "aptitude_test_template": submission["aptitude_test_template"],
             "job_applicant": submission["job_applicant"],
             "answers": answers,
