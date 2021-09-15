@@ -6,5 +6,5 @@ import json
 from frappe.model.document import Document
 
 class AptitudeTestTemplate(Document):
-	def before_save(self):
-        self.total_points = sum(question.points for question in self.questions)
+        def before_save(self):
+                self.total_points = sum(question.points for question in self.questions)
