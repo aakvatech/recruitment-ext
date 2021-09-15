@@ -8,7 +8,7 @@ def get_data(data):
             {
                 "label": _("Aptitude Test"),
                 "items": [
-                    "Aptitude Test Template"
+                    "Aptitude Test"
                 ],
             },
             {
