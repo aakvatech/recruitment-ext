@@ -10,14 +10,14 @@ CONTACT_MSG = "<br><br>If this seems like a mistake, please email us for support
 def get_context(context):
     validate_query_params()
     job_opening = frappe.get_doc("Job Opening", frappe.form_dict["job_opening"])
-    if not job_opening.get("aptitude_test"):
+    if not job_opening.get("aptitude_test_template"):
         return
 
-    aptitude_test = frappe.get_doc("Aptitude Test", job_opening.aptitude_test)
+    aptitude_test = frappe.get_doc("Aptitude Test Template", job_opening.aptitude_test)
 
     # if Aptitude test is already submitted for given Applicant, show success message (handled in js)
     if frappe.db.get_value(
-        "Aptitude Test Submission",
+        "Aptitude Test",
         filters={"job_applicant": frappe.form_dict["job_applicant"]},
     ):
         context["has_submitted"] = 1
@@ -60,7 +60,7 @@ def submit_aptitude_test(submission):
     answers = prepare_answers(questions, submission)
     doc = frappe.get_doc(
         {
-            "doctype": "Aptitude Test Submission",
+            "doctype": "Aptitude Test",
             "aptitude_test": submission["aptitude_test"],
             "job_applicant": submission["job_applicant"],
             "answers": answers,
@@ -72,7 +72,7 @@ def submit_aptitude_test(submission):
 
 @frappe.whitelist(allow_guest=True)
 def get_aptitude_test(job_opening):
-    return frappe.db.get_value("Job Opening", job_opening, "aptitude_test")
+    return frappe.db.get_value("Job Opening", job_opening, "aptitude_test_template")
 
 
 def validate_query_params():
