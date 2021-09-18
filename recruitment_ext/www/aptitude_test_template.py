@@ -137,27 +137,27 @@ def validate_aptitude_test_template_submision(questions, submission):
     error_message = ""
     for question in questions:
         # TODO: remove these 2 lines after adding fields to the doctype
-        question.min_allowed_answers = 1
-        question.max_allowed_answers = 3
+        # question.min_allowed_answers = 1
+        # question.max_allowed_answers = 3
 
         if question.required and not submission.answers.get(question.name):
             error_message += wrap_with_html_tag(
                 f"The question: { bold(question.question) } is required!", "li"
             )
 
-        if question.question_type != "MCQ - Multiple Answers":
+        if question.question_type != "MCQ - Multiple Answers" or not question.required:
             continue
 
         number_of_answers = len(submission.answers.get(question.name, []))
-        if not question.required and not number_of_answers:
-            continue
+        # if not question.required and not number_of_answers:
+        #     continue
 
         if number_of_answers < question.min_allowed_answers:
             error_message += wrap_with_html_tag(
                 f"choose atleast { bold(question.min_allowed_answers) } option(s) for the question: { bold(question.question) }",
                 "li",
             )
-        if number_of_answers > question.max_allowed_answers:
+        elif number_of_answers > question.max_allowed_answers:
             error_message += wrap_with_html_tag(
                 f"maximum { bold(question.max_allowed_answers) } option(s) allowed to choose for the question: { bold(question.question) }",
                 "li",
