@@ -13,7 +13,7 @@ def get_context(context):
     if not job_opening.get("aptitude_test_template"):
         return
 
-    aptitude_test = frappe.get_doc("Aptitude Test Template", job_opening.aptitude_test)
+    aptitude_test = frappe.get_doc("Aptitude Test Template", job_opening.aptitude_test_template)
 
     # if Aptitude test is already submitted for given Applicant, show success message (handled in js)
     if frappe.db.get_value(

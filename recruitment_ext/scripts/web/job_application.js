@@ -5,7 +5,7 @@ frappe.ready(() => {
 
 	// If Job Opening has Aptitude Test Template, redirect to the respective Aptitude Test Template
 	frappe.call({
-		method: 'recruitment_ext.www.aptitude_test_template.get_aptitude_test_template',
+		method: 'recruitment_ext.www.aptitude_test.get_aptitude_test',
 		args: { job_opening: job_title },
 		callback({ message }) {
 			if (!message) return;
