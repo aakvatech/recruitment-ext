@@ -1,1 +1,1 @@
-execute:from recruitment_ext.install import after_install; after_install()
+execute:from recruitment_ext.install import after_install; after_install() #1
