@@ -7,15 +7,11 @@ def get_data(data):
         "transactions": [
             {
                 "label": _("Aptitude Test"),
-                "items": [
-                    "Aptitude Test"
-                ],
+                "items": ["Aptitude Test"],
             },
             {
                 "label": _("Interview"),
-                "items": [
-                    "Interview Record"
-                ],
+                "items": ["Interview Record"],
             },
         ],
     }

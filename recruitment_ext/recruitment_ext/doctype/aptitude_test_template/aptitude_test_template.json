@@ -3,7 +3,7 @@
  "allow_guest_to_view": 1,
  "allow_rename": 1,
  "autoname": "field:title",
- "creation": "2021-09-13 09:16:37.681047",
+ "creation": "2021-08-30 14:53:35.097239",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
@@ -29,10 +29,6 @@
    "label": "Description"
   },
   {
-   "fieldname": "section_break_3",
-   "fieldtype": "Section Break"
-  },
-  {
    "fieldname": "questions",
    "fieldtype": "Table",
    "label": "Questions",
@@ -44,15 +40,19 @@
    "fieldtype": "Int",
    "label": "Total Points",
    "read_only": 1
+  },
+  {
+   "fieldname": "section_break_3",
+   "fieldtype": "Section Break"
   }
  ],
  "links": [
   {
-   "link_doctype": "Aptitude Test",
-   "link_fieldname": "aptitude_test_template"
+   "link_doctype": "Aptitude Test Submission",
+   "link_fieldname": "aptitude_test"
   }
  ],
- "modified": "2021-09-14 23:52:48.002338",
+ "modified": "2021-09-04 14:27:47.699809",
  "modified_by": "Administrator",
  "module": "Recruitment Ext",
  "name": "Aptitude Test Template",

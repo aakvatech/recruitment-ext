@@ -13,9 +13,9 @@ def get_context(context):
     if not job_opening.get("aptitude_test_template"):
         return
 
-    aptitude_test_template = frappe.get_doc("Aptitude Test Template", job_opening.aptitude_test_template)
+    aptitude_test = frappe.get_doc("Aptitude Test Template", job_opening.aptitude_test)
 
-    # if Aptitude test template is already submitted for given Applicant, show success message (handled in js)
+    # if Aptitude test is already submitted for given Applicant, show success message (handled in js)
     if frappe.db.get_value(
         "Aptitude Test",
         filters={"job_applicant": frappe.form_dict["job_applicant"]},
@@ -34,13 +34,13 @@ def get_context(context):
     # TODO: strip options
     context.update(
         {
-            "docname": aptitude_test_template.name,
-            "title": aptitude_test_template.title,
-            "description": aptitude_test_template.description,
-            "total_points": aptitude_test_template.total_points,
+            "docname": aptitude_test.name,
+            "title": aptitude_test.title,
+            "description": aptitude_test.description,
+            "total_points": aptitude_test.total_points,
             "questions": [
                 {key: question.get(key) for key in keys_to_include}
-                for question in aptitude_test_template.questions
+                for question in aptitude_test.questions
             ],
         }
     )
@@ -49,19 +49,19 @@ def get_context(context):
 
 
 @frappe.whitelist(allow_guest=True)
-def submit_aptitude_test_template(submission):
+def submit_aptitude_test(submission):
     submission = frappe._dict(json.loads(submission))
     questions = frappe.get_all(
         "Aptitude Test Question",
-        filters={"parent": submission["aptitude_test_template"]},
+        filters={"parent": submission["aptitude_test"]},
         fields=["*"],
     )
-    validate_aptitude_test_template_submision(questions, submission)
+    validate_aptitude_test_submision(questions, submission)
     answers = prepare_answers(questions, submission)
     doc = frappe.get_doc(
         {
             "doctype": "Aptitude Test",
-            "aptitude_test_template": submission["aptitude_test_template"],
+            "aptitude_test": submission["aptitude_test"],
             "job_applicant": submission["job_applicant"],
             "answers": answers,
         }
@@ -71,7 +71,7 @@ def submit_aptitude_test_template(submission):
 
 
 @frappe.whitelist(allow_guest=True)
-def get_aptitude_test_template(job_opening):
+def get_aptitude_test(job_opening):
     return frappe.db.get_value("Job Opening", job_opening, "aptitude_test_template")
 
 
@@ -130,16 +130,12 @@ def prepare_answers(questions, submission):
     return answers
 
 
-def validate_aptitude_test_template_submision(questions, submission):
+def validate_aptitude_test_submision(questions, submission):
     def wrap_with_html_tag(string, tag):
         return f"<{tag}>{string}</{tag}>"
 
     error_message = ""
     for question in questions:
-        # TODO: remove these 2 lines after adding fields to the doctype
-        # question.min_allowed_answers = 1
-        # question.max_allowed_answers = 3
-
         if question.required and not submission.answers.get(question.name):
             error_message += wrap_with_html_tag(
                 f"The question: { bold(question.question) } is required!", "li"
@@ -149,8 +145,6 @@ def validate_aptitude_test_template_submision(questions, submission):
             continue
 
         number_of_answers = len(submission.answers.get(question.name, []))
-        # if not question.required and not number_of_answers:
-        #     continue
 
         if number_of_answers < question.min_allowed_answers:
             error_message += wrap_with_html_tag(

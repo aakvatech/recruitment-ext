@@ -1,14 +1,13 @@
 {
  "actions": [],
  "autoname": "field:job_applicant",
- "creation": "2021-09-13 10:17:14.843145",
+ "creation": "2021-08-31 14:34:30.574735",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
   "job_applicant",
-  "column_break_2",
-  "aptitude_test_template",
+  "aptitude_test",
   "section_break_4",
   "answers",
   "section_break_5",
@@ -33,20 +32,6 @@
    "unique": 1
   },
   {
-   "fieldname": "column_break_2",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "aptitude_test_template",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "Aptitude Test Template",
-   "options": "Aptitude Test Template",
-   "read_only": 1,
-   "reqd": 1,
-   "set_only_once": 1
-  },
-  {
    "fieldname": "section_break_4",
    "fieldtype": "Section Break",
    "label": "Answers"
@@ -58,41 +43,14 @@
    "options": "Aptitude Test Answer"
   },
   {
-   "fieldname": "section_break_5",
-   "fieldtype": "Section Break",
-   "label": "Result"
-  },
-  {
-   "allow_on_submit": 1,
-   "fieldname": "total_earned_points",
-   "fieldtype": "Int",
-   "label": "Earned Points",
-   "read_only": 1
-  },
-  {
-   "fieldname": "column_break_8",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fetch_from": "aptitude_test_template.total_points",
-   "fieldname": "total_points",
-   "fieldtype": "Int",
-   "label": "Total Points",
-   "read_only": 1
-  },
-  {
-   "fieldname": "column_break_10",
-   "fieldtype": "Column Break"
-  },
-  {
-   "allow_on_submit": 1,
-   "fieldname": "result_percentage",
-   "fieldtype": "Data",
-   "label": "Result (%)"
-  },
-  {
-   "fieldname": "section_break_12",
-   "fieldtype": "Section Break"
+   "fieldname": "aptitude_test",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Aptitude Test",
+   "options": "Aptitude Test Template",
+   "read_only": 1,
+   "reqd": 1,
+   "set_only_once": 1
   },
   {
    "fieldname": "amended_from",
@@ -102,12 +60,50 @@
    "options": "Aptitude Test",
    "print_hide": 1,
    "read_only": 1
+  },
+  {
+   "fetch_from": "aptitude_test.total_points",
+   "fieldname": "total_points",
+   "fieldtype": "Int",
+   "label": "Total Points",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_5",
+   "fieldtype": "Section Break",
+   "label": "Result"
+  },
+  {
+   "fieldname": "column_break_8",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_10",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "result_percentage",
+   "fieldtype": "Data",
+   "label": "Result (%)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_12",
+   "fieldtype": "Section Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "total_earned_points",
+   "fieldtype": "Int",
+   "label": "Earned Points",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2021-09-15 13:30:27.500832",
+ "modified": "2021-09-17 12:58:22.650680",
  "modified_by": "Administrator",
  "module": "Recruitment Ext",
  "name": "Aptitude Test",
