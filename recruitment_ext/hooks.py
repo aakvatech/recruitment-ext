@@ -17,3 +17,5 @@ webform_include_js = {
 override_doctype_dashboards = {
     "Job Applicant": "recruitment_ext.api.job_applicant_dashboard.get_data",
 }
+
+

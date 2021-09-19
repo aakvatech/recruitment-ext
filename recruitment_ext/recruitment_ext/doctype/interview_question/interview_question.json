@@ -8,8 +8,7 @@
  "field_order": [
   "questn",
   "question_description",
-  "expected_score",
-  "actual_score"
+  "expected_score"
  ],
  "fields": [
   {
@@ -34,17 +33,11 @@
    "in_list_view": 1,
    "label": "Expected Score",
    "reqd": 1
-  },
-  {
-   "fieldname": "actual_score",
-   "fieldtype": "Float",
-   "in_list_view": 1,
-   "label": "Actual Score"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-09-04 12:22:09.802984",
+ "modified": "2021-09-14 12:17:03.328288",
  "modified_by": "Administrator",
  "module": "Recruitment Ext",
  "name": "Interview Question",

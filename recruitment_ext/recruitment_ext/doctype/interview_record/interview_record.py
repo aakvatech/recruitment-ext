@@ -6,7 +6,7 @@ from frappe.model.document import Document
 
 class InterviewRecord(Document):
 	def on_submit(self):
-		self.set_total_score_to_job_applicant()
+		self.set_total_interview_score_to_job_applicant()
 	
 	def validate(self):
 		self.validate_total_interview_score()
@@ -15,11 +15,11 @@ class InterviewRecord(Document):
 		if self.total_interview_score > self.total_benchmark_score:
 			frappe.throw("Total Interview Score can not be greater than Total Benchmark Score!")
 
-	def set_total_score_to_job_applicant(self):
+	def set_total_interview_score_to_job_applicant(self):
 		frappe.db.set_value(
             "Job Applicant", 
             self.job_applicant,
-            'interview_score', 
+            'interview_record', 
             self.total_interview_score
         )
 	
