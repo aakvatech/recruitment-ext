@@ -10,7 +10,7 @@ frappe.ready(() => {
 		callback({ message }) {
 			if (!message) return;
 			frappe.web_form.handle_success = (doc) => {
-				window.location.assign(`/aptitude_test_template?job_applicant=${doc.name}&job_opening=${doc.job_title}`);
+				window.location.assign(`/aptitude_test?job_applicant=${doc.name}&job_opening=${doc.job_title}`);
 			};
 		}
 	});
