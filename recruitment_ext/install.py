@@ -18,15 +18,15 @@ def make_custom_fields():
                 "insert_after": "department",
             },
         ],
-        "Job Applicant": [
-            {
-                "fieldname": "aptitude_test_score",
-                "label": "Aptitude Test Score",
-                "fieldtype": "Int",
-                "insert_after": "applicant_rating",
-                "read_only": "1",
-            },
-        ],
+        # "Job Applicant": [
+        #     {
+        #         "fieldname": "aptitude_test_score",
+        #         "label": "Aptitude Test Score",
+        #         "fieldtype": "Int",
+        #         "insert_after": "applicant_rating",
+        #         "read_only": "1",
+        #     },
+        # ],
     }
 
     create_custom_fields(custom_fields)
