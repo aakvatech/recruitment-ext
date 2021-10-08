@@ -7,7 +7,7 @@
  "field_order": [
   "record_no",
   "interviewer",
-  "interview_score"
+  "marks"
  ],
  "fields": [
   {
@@ -27,7 +27,7 @@
   },
   {
    "bold": 1,
-   "fieldname": "interview_score",
+   "fieldname": "marks",
    "fieldtype": "Int",
    "in_list_view": 1,
    "label": "Interview Score",
@@ -37,7 +37,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2021-10-08 17:22:35.309922",
+ "modified": "2021-10-08 18:13:55.657524",
  "modified_by": "Administrator",
  "module": "Recruitment Ext",
  "name": "Interview Mark",
