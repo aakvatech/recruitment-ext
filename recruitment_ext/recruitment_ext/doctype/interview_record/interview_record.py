@@ -8,7 +8,6 @@ from frappe.model.document import Document
 class InterviewRecord(Document):
 	def on_submit(self):
 		self.create_scores()
-		# self.set_average_score()
 	
 	def validate(self):
 		self.validate_total_interview_score()
@@ -39,7 +38,7 @@ class InterviewRecord(Document):
 
 		for mark in total_marks:
 			score += cint(mark.marks)
-			average_score = flt(score/number_of_rows)
+			average_score = flt(score / number_of_rows, 2)
 
 			frappe.db.set_value(
 				"Job Applicant",
