@@ -7,11 +7,11 @@ from frappe.model.document import Document
 
 class InterviewRecord(Document):
 	def on_submit(self):
-		self.set_average_score()
+		self.create_scores()
+		# self.set_average_score()
 	
 	def validate(self):
 		self.validate_total_interview_score()
-		self.create_scores()
 
 	def validate_total_interview_score(self):
 		if self.total_interview_score > self.total_benchmark_score:
@@ -29,26 +29,24 @@ class InterviewRecord(Document):
 				"parenttype": "Job Applicant"
 			})
 			applicant.save(ignore_permissions=True)
-			
-	
-	def set_average_score(self):
+		
 		score = 0
-		total_marks = frappe.get_list("Interview Mark", {"parent": self.job_applicant}, "marks")
-		frappe.msgprint("total_marks: " + str(average_score))
+		total_marks = frappe.get_list("Interview Mark", {"parent": doc.job_applicant}, "marks")
+		if not total_marks:
+			return
 
 		number_of_rows = len(total_marks)
-		frappe.msgprint("number_of_rows: " + str(number_of_rows))
 
 		for mark in total_marks:
 			score += cint(mark.marks)
 			average_score = flt(score/number_of_rows)
-			frappe.msgprint("average score: " + str(average_score))
 
 			frappe.db.set_value(
 				"Job Applicant",
-				self.job_applicant, 
+				doc.job_applicant, 
 				"overall_score",
 				average_score
 			)
+		
 
 		
