@@ -1,0 +1,49 @@
+{
+ "actions": [],
+ "creation": "2021-10-07 15:41:36.140670",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "record_no",
+  "interviewer",
+  "marks"
+ ],
+ "fields": [
+  {
+   "fieldname": "record_no",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Record No:",
+   "options": "Interview Record",
+   "reqd": 1
+  },
+  {
+   "fieldname": "interviewer",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Interviewer",
+   "reqd": 1
+  },
+  {
+   "bold": 1,
+   "fieldname": "marks",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Interview Score",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2021-10-08 18:13:55.657524",
+ "modified_by": "Administrator",
+ "module": "Recruitment Ext",
+ "name": "Interview Mark",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

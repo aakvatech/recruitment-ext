@@ -42,7 +42,7 @@ frappe.ui.form.on('Interview Record', {
 });
 
 frappe.ui.form.on("Interview Data", {
-	interview_score: function(frm, cdt,cdn) {
+	interview_score: function(frm, cdt, cdn) {
 		let row = locals[cdt][cdn];
 		frm.validate_interview_score(frm, row, row.interview_score)
 		frm.set_total_interview_score(frm)
