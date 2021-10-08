@@ -13,9 +13,9 @@
   "age",
   "col_break",
   "job_role",
+  "designation",
   "marital_status",
-  "date_of_interview",
-  "time_of_interview",
+  "date_time_of_interview",
   "sec_break",
   "questn_list",
   "sec_break_2",
@@ -31,9 +31,9 @@
  ],
  "fields": [
   {
+   "fetch_from": "job_applicant.applicant_name",
    "fieldname": "candidate_name",
    "fieldtype": "Data",
-   "hidden": 1,
    "label": "Candidate Name"
   },
   {
@@ -49,12 +49,8 @@
    "fetch_from": "job_applicant.job_title",
    "fieldname": "job_role",
    "fieldtype": "Data",
+   "hidden": 1,
    "label": "Job Role"
-  },
-  {
-   "fieldname": "time_of_interview",
-   "fieldtype": "Time",
-   "label": "Time"
   },
   {
    "fieldname": "sec_break",
@@ -70,13 +66,8 @@
   {
    "fetch_from": "job_applicant.phone_number",
    "fieldname": "phone_no",
-   "fieldtype": "Int",
+   "fieldtype": "Data",
    "label": "Phone Number"
-  },
-  {
-   "fieldname": "date_of_interview",
-   "fieldtype": "Date",
-   "label": "Date"
   },
   {
    "fieldname": "questn_list",
@@ -142,23 +133,34 @@
   },
   {
    "fieldname": "marital_status",
-   "fieldtype": "Data",
-   "label": "Marital  Status"
+   "fieldtype": "Select",
+   "label": "Marital  Status",
+   "options": "\nSingle\nMarried"
   },
   {
    "bold": 1,
    "fieldname": "job_applicant",
    "fieldtype": "Link",
+   "hidden": 1,
    "in_list_view": 1,
    "label": "Candidate",
-   "options": "Job Applicant",
-   "reqd": 1
+   "options": "Job Applicant"
+  },
+  {
+   "fieldname": "designation",
+   "fieldtype": "Data",
+   "label": "Designation"
+  },
+  {
+   "fieldname": "date_time_of_interview",
+   "fieldtype": "Datetime",
+   "label": "Date & Time"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2021-09-14 12:35:57.815564",
+ "modified": "2021-10-08 17:14:39.383673",
  "modified_by": "Administrator",
  "module": "Recruitment Ext",
  "name": "Interview Record",

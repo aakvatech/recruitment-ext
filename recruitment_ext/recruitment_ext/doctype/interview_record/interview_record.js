@@ -38,11 +38,19 @@ frappe.ui.form.on('Interview Record', {
 			})
 			frm.set_value("total_interview_score", total)
 		}
+
+		frm.set_overall_score = function(frm) {
+			let total_marks = 0;
+			frm.doc.scores.forEach(data=>{
+				total_marks = total_marks + data.marks
+			})
+			frm.set_value("overall_score", total_marks)
+		}
 	}
 });
 
 frappe.ui.form.on("Interview Data", {
-	interview_score: function(frm, cdt,cdn) {
+	interview_score: function(frm, cdt, cdn) {
 		let row = locals[cdt][cdn];
 		frm.validate_interview_score(frm, row, row.interview_score)
 		frm.set_total_interview_score(frm)
@@ -50,5 +58,13 @@ frappe.ui.form.on("Interview Data", {
 	benchmark_score: function(frm, cdt, cdn) {
 		let row = locals[cdt][cdn];
 		frm.set_total_benchmark_score(frm)
+	}
+})
+
+
+frappe.ui.form.on("Interview Mark", {
+	marks: function(fmr, cdt, cdn) {
+		let d = locals[cdt][cdn];
+		frm.set_overall_score(frm)
 	}
 })
