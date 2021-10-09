@@ -22,28 +22,30 @@ class InterviewRecord(Document):
 			applicant = frappe.get_doc("Job Applicant", doc.job_applicant)
 			applicant.append("scores", {
 				"record_no": doc.name,
+				"interview_date": doc.date_time_of_interview,
 				"interviewer": doc.interviewer,
-				"marks": doc.total_interview_score,
+				"benchmark_score": doc.total_benchmark_score,
+				"interview_score": doc.total_interview_score,
 				"parent": doc.job_applicant,
 				"parenttype": "Job Applicant"
 			})
 			applicant.save(ignore_permissions=True)
 		
 		score = 0
-		total_marks = frappe.get_list("Interview Mark", {"parent": doc.job_applicant}, "marks")
+		total_marks = frappe.get_list("Interview Mark", {"parent": doc.job_applicant}, "interview_score")
 		if not total_marks:
 			return
 
 		number_of_rows = len(total_marks)
 
 		for mark in total_marks:
-			score += cint(mark.marks)
-			average_score = flt(score / number_of_rows, 2)
+			score += cint(mark.interview_score)
+			average_score = flt(score / number_of_rows)
 
 			frappe.db.set_value(
 				"Job Applicant",
 				doc.job_applicant, 
-				"overall_score",
+				"average_score",
 				average_score
 			)
 		
