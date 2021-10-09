@@ -22,9 +22,9 @@ class InterviewRecord(Document):
 			applicant = frappe.get_doc("Job Applicant", doc.job_applicant)
 			applicant.append("scores", {
 				"record_no": doc.name,
-				"interview_date": doc.date_time_of_interview
+				"interview_date": doc.date_time_of_interview,
 				"interviewer": doc.interviewer,
-				"benchmark_score": doc.total_benchmark_score
+				"benchmark_score": doc.total_benchmark_score,
 				"interview_score": doc.total_interview_score,
 				"parent": doc.job_applicant,
 				"parenttype": "Job Applicant"
