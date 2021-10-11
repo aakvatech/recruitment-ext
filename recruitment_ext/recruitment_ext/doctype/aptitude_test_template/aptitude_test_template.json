@@ -48,11 +48,11 @@
  ],
  "links": [
   {
-   "link_doctype": "Aptitude Test Submission",
+   "link_doctype": "Aptitude Test",
    "link_fieldname": "aptitude_test"
   }
  ],
- "modified": "2021-09-04 14:27:47.699809",
+ "modified": "2021-10-11 14:57:25.987240",
  "modified_by": "Administrator",
  "module": "Recruitment Ext",
  "name": "Aptitude Test Template",
