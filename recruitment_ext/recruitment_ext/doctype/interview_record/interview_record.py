@@ -40,13 +40,13 @@ class InterviewRecord(Document):
 
 		for mark in total_marks:
 			score += cint(mark.interview_score)
-			average_score = flt(score / number_of_rows)
+			average_interview_score = flt(score / number_of_rows)
 
 			frappe.db.set_value(
 				"Job Applicant",
 				doc.job_applicant, 
-				"average_score",
-				average_score
+				"average_interview_score",
+				average_interview_score
 			)
 		
 
